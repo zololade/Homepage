@@ -1,0 +1,164 @@
+img {
+  width: 100%;
+  height: auto;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* shared */
+header h2,
+main h2,
+footer .footer-info h2,
+footer .footer-info .social_links {
+  text-align: center;
+}
+
+article .github,
+article .dummy-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* styles */
+header {
+  padding: 2rem;
+
+  .hero {
+    position: relative;
+    margin: auto;
+
+    h1 {
+      position: absolute;
+      inset: auto auto 0 1rem;
+      color: white;
+    }
+  }
+  h2 {
+    margin-top: 1.5rem;
+  }
+
+  .social_links {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}
+
+main {
+  h2 {
+    margin-bottom: 1rem;
+  }
+  .articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(auto, 250px));
+    justify-content: center;
+    padding: 0.5rem;
+    gap: 2rem;
+  }
+
+  article {
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+
+    .dummy-img {
+      background-color: #7c75ca;
+      height: 10rem;
+      color: white;
+      text-align: center;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      h3 {
+        padding-left: 1rem;
+        margin-right: auto;
+      }
+
+      a {
+        align-self: center;
+
+        &.open-in-new {
+          padding-right: 1rem;
+          img {
+            height: 1rem;
+            width: auto;
+            max-width: 1rem;
+          }
+        }
+      }
+    }
+    p {
+      padding: 0 1rem;
+    }
+  }
+}
+
+footer {
+  margin-top: 5rem;
+  padding-top: 1rem;
+  background-color: #0891b2;
+  color: white;
+
+  .footer-info {
+    padding: 1rem;
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    address {
+      margin-top: 1rem;
+      font-style: normal;
+    }
+    a {
+      color: inherit;
+    }
+    .social_links {
+      color: black;
+      margin: 1rem 0;
+    }
+  }
+  .footer-img__container {
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+}
+
+@media screen and (width >= 495px) {
+  footer {
+    .wrapper {
+      max-width: 810px;
+      margin: auto;
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+
+      > * {
+        flex: 1;
+      }
+      .footer-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h2,
+        .social_links {
+          text-align: left;
+        }
+      }
+      .footer-img__container {
+        max-height: 560px;
+      }
+    }
+  }
+}
