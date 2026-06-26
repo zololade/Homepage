@@ -9,8 +9,7 @@ a {
 
 /* shared */
 header h2,
-footer .footer-info h2,
-footer .footer-info .social_links {
+footer .footer-info h2 {
   text-align: center;
 }
 
@@ -31,6 +30,12 @@ article .dummy-img {
 footer .footer-info .social_links,
 header .social_links {
   font-size: 1.5rem;
+}
+
+.social_links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 /* styles */
@@ -75,9 +80,6 @@ header {
 
   .social_links {
     margin-top: 0.5rem;
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
   }
 }
 
@@ -204,9 +206,11 @@ footer {
         flex-direction: column;
         justify-content: center;
 
-        h2,
-        .social_links {
+        h2 {
           text-align: left;
+        }
+        .social_links {
+          justify-content: left;
         }
       }
     }
