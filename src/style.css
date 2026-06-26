@@ -126,6 +126,8 @@ footer {
     }
   }
   .footer-img__container {
+    display: grid;
+    place-content: center;
     img {
       width: 100%;
       height: auto;
