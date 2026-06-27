@@ -14,35 +14,37 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>homepage</title>
-    <script type="module" crossorigin src="/Homepage/assets/index-BSacwxFn.js"></script>
-    <link rel="stylesheet" crossorigin href="/Homepage/assets/index-DIBrPlER.css">
+    <script type="module" crossorigin src="/Homepage/assets/index-Cc9UjCyy.js"></script>
+    <link rel="stylesheet" crossorigin href="/Homepage/assets/index-CNl9ji6T.css">
   </head>
   <body>
     <header>
       <div class="bg"></div>
-      <div class="hero">
-        <img
-          src="/Homepage/header.jpeg"
-          alt="user photo"
-          width="2590"
-          height="4317"
-        />
-        <h1>Jane Doe</h1>
-      </div>
-
-      <h2>About me</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-        do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit esse cillum
-        dolore eu fugiat nulla pariatur.
-      </p>
-      <div class="social_links">
-        <a href="#"><i class="devicon-github-original"></i></a>
-        <a href="#"><i class="devicon-linkedin-plain"></i></a>
-        <a href="#"><i class="devicon-twitter-original"></i></a>
+      <div class="header-wrapper">
+        <div class="hero">
+          <picture>
+            <source media="(width < 495px)" srcset="header.jpeg" />
+            <source media="(width >= 495px)" srcset="header.png" />
+            <img src="header.jpg" alt="header image" />
+          </picture>
+          <h1>Jane Doe</h1>
+        </div>
+        <div class="info">
+          <h2>About me</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+            ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur.
+          </p>
+          <div class="social_links">
+            <a href="#"><i class="devicon-github-original"></i></a>
+            <a href="#"><i class="devicon-linkedin-plain"></i></a>
+            <a href="#"><i class="devicon-twitter-original"></i></a>
+          </div>
+        </div>
       </div>
     </header>
     <main>
@@ -190,12 +192,11 @@
           </div>
         </div>
         <div class="footer-img__container">
-          <img
-            src="/Homepage/header.jpeg"
-            alt="user photo"
-            width="2590"
-            height="4317"
-          />
+          <picture>
+            <source media="(width < 495px)" srcset="header.jpeg" />
+            <source media="(width >= 495px)" srcset="header.png" />
+            <img src="header.jpg" alt="footer image" />
+          </picture>
         </div>
       </div>
     </footer>
