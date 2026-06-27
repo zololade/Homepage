@@ -58,7 +58,12 @@ header {
       content: "";
       position: absolute;
       background-color: #0891b2;
-      clip-path: polygon(0 0, 100% 0%, 100% 35%, 0 65%);
+      @media screen and (width >= 580px) {
+        clip-path: polygon(0 0, 100% 0%, 100% 45%, 0 75%);
+      }
+      @media screen and (width < 580px) {
+        clip-path: polygon(0 0, 100% 0%, 100% 35%, 0 65%);
+      }
       inset: 0;
     }
   }

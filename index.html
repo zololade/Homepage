@@ -190,12 +190,11 @@
           </div>
         </div>
         <div class="footer-img__container">
-          <img
-            src="/header.jpeg"
-            alt="user photo"
-            width="2590"
-            height="4317"
-          />
+          <picture>
+            <source media="(width < 495px)" srcset="header.jpeg" />
+            <source media="(width >= 495px)" srcset="header.png" />
+            <img src="header.jpg" alt="footer image" />
+          </picture>
         </div>
       </div>
     </footer>
