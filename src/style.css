@@ -189,6 +189,45 @@ footer {
     }
   }
 }
+
+@media screen and (width >= 580px) {
+  header {
+    .header-wrapper {
+      display: flow-root;
+
+      .hero {
+        img {
+          max-width: 300px;
+          padding: 0 1rem 0 0;
+          float: left;
+        }
+        h1 {
+          font-size: 2.5rem;
+          position: relative;
+          left: -2.5rem;
+        }
+      }
+
+      .info {
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+        background-color: white;
+        margin: 0 2rem;
+        padding: 0 1rem;
+
+        h2 {
+          font-size: 1.75rem;
+          padding: 3rem 0 0.5rem 0;
+          margin: 0;
+        }
+        .social_links {
+          justify-content: right;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (width >= 495px) {
   footer {
     .wrapper {
