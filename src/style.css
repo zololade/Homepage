@@ -38,7 +38,7 @@ header .social_links {
   gap: 1rem;
 }
 
-/* styles */
+/* header */
 header {
   display: flow-root;
   padding: 2rem;
@@ -50,6 +50,8 @@ header {
     filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.75));
   }
 
+  /* diagonal teal backdrop - shape only lives here, filter lives on .bg
+     so clip-path + drop-shadow don't fight on the same box */
   .bg {
     position: absolute;
     inset: 0;
@@ -59,16 +61,19 @@ header {
       content: "";
       position: absolute;
       background-color: #0891b2;
-      @media screen and (width >= 580px) {
-        clip-path: polygon(0 0, 100% 0%, 100% 45%, 0 75%);
-      }
+      inset: 0;
+
+      /* polygon gets shallower as the header gets wider/shorter,
+         to match how the diagonal sits lower in the design at each breakpoint */
       @media screen and (width < 580px) {
         clip-path: polygon(0 0, 100% 0%, 100% 35%, 0 65%);
+      }
+      @media screen and (580px <= width < 925px) {
+        clip-path: polygon(0 0, 100% 0%, 100% 45%, 0 75%);
       }
       @media screen and (width >= 925px) {
         clip-path: polygon(0 0, 100% 0%, 100% 65%, 0 95%);
       }
-      inset: 0;
     }
   }
 
@@ -95,6 +100,71 @@ header {
   }
 }
 
+/* header: tablet+ (photo + "About me" card side-by-side via float) */
+@media screen and (width >= 580px) {
+  header .header-wrapper {
+    .hero img {
+      max-width: 300px;
+    }
+
+    .info {
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+      background-color: white;
+      margin: 0 2rem;
+      padding: 0 1rem;
+
+      h2 {
+        font-size: 1.75rem;
+        padding: 3rem 0 0.5rem 0;
+        margin: 0;
+      }
+
+      .social_links {
+        justify-content: right;
+        padding-bottom: 1rem;
+      }
+    }
+  }
+}
+
+/* header: tablet only - float the photo, text wraps beside/under it */
+@media screen and (580px <= width <= 925px) {
+  header .hero {
+    img {
+      padding: 0 1rem 0 0;
+      float: left;
+    }
+
+    h1 {
+      position: relative;
+      left: -2.5rem;
+    }
+  }
+}
+
+/* header: desktop - flex row instead of float, so .info can vertical-center */
+@media screen and (width >= 925px) {
+  header .header-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+
+    img {
+      min-width: 300px;
+    }
+
+    .info {
+      max-height: fit-content;
+      margin: 0;
+
+      h2 {
+        text-align: left;
+      }
+    }
+  }
+}
+
+/* main / project grid */
 main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(auto, 300px));
@@ -106,6 +176,7 @@ main {
 
   h2 {
     grid-column: 1 / -1;
+    /* pulls the heading back up through the grid gap, leaving 0.5rem of breathing room */
     margin-bottom: calc((-1 * var(--grid-gap)) + 0.5rem);
   }
 
@@ -125,6 +196,7 @@ main {
       text-align: center;
       padding: 1rem;
     }
+
     .meta {
       display: flex;
       flex-wrap: wrap;
@@ -140,12 +212,14 @@ main {
         --icon-size: var(--meta-font-size);
 
         align-self: center;
+
         i {
           font-size: var(--icon-size);
         }
 
         &.open-in-new {
           padding-right: 1rem;
+
           img {
             height: var(--icon-size);
             width: auto;
@@ -154,12 +228,25 @@ main {
         }
       }
     }
+
     p {
       padding: 0 1rem;
     }
   }
 }
 
+@media screen and (width < 680px) {
+  main {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+
+    h2 {
+      text-align: center;
+    }
+  }
+}
+
+/* footer */
 footer {
   margin-top: 5rem;
   padding-top: 1rem;
@@ -168,6 +255,7 @@ footer {
 
   .footer-info {
     padding: 1rem;
+
     h2 {
       margin-bottom: 1rem;
     }
@@ -176,124 +264,46 @@ footer {
       margin-top: 1rem;
       font-style: normal;
     }
+
     a {
       color: inherit;
     }
+
     .social_links {
       color: black;
       margin: 1rem 0;
     }
   }
+
   .footer-img__container {
     display: grid;
     place-content: center;
   }
 }
 
-/* media queries */
-
-@media screen and (width < 680px) {
-  main {
-    grid-template-columns: 1fr;
-    padding: 2rem;
-    h2 {
-      text-align: center;
-    }
-  }
-}
-
-@media screen and (580px <= width) {
-  header {
-    .header-wrapper {
-      .hero {
-        img {
-          max-width: 300px;
-        }
-      }
-
-      .info {
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-        background-color: white;
-        margin: 0 2rem;
-        padding: 0 1rem;
-
-        h2 {
-          font-size: 1.75rem;
-          padding: 3rem 0 0.5rem 0;
-          margin: 0;
-        }
-        .social_links {
-          justify-content: right;
-          padding-bottom: 1rem;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (580px <= width <= 925px) {
-  header {
-    .hero {
-      img {
-        max-width: 300px;
-        padding: 0 1rem 0 0;
-        float: left;
-      }
-      h1 {
-        position: relative;
-        left: -2.5rem;
-      }
-    }
-  }
-}
-
-@media screen and (width >= 925px) {
-  header {
-    .header-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 0;
-
-      .hero {
-        img {
-          min-width: 300px;
-        }
-      }
-      .info {
-        max-height: fit-content;
-        margin: 0;
-
-        h2 {
-          text-align: left;
-        }
-      }
-    }
-  }
-}
-
 @media screen and (width >= 495px) {
-  footer {
-    .wrapper {
-      max-width: 810px;
-      margin: auto;
+  footer .wrapper {
+    max-width: 810px;
+    margin: auto;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+
+    > * {
+      flex: 1;
+    }
+
+    .footer-info {
       display: flex;
-      gap: 1rem;
-      padding: 1rem;
+      flex-direction: column;
+      justify-content: center;
 
-      > * {
-        flex: 1;
+      h2 {
+        text-align: left;
       }
-      .footer-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
 
-        h2 {
-          text-align: left;
-        }
-        .social_links {
-          justify-content: left;
-        }
+      .social_links {
+        justify-content: left;
       }
     }
   }
