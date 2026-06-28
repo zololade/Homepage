@@ -40,6 +40,7 @@ header .social_links {
 
 /* styles */
 header {
+  display: flow-root;
   padding: 2rem;
   position: relative;
   isolation: isolate;
@@ -64,6 +65,9 @@ header {
       @media screen and (width < 580px) {
         clip-path: polygon(0 0, 100% 0%, 100% 35%, 0 65%);
       }
+      @media screen and (width >= 925px) {
+        clip-path: polygon(0 0, 100% 0%, 100% 65%, 0 95%);
+      }
       inset: 0;
     }
   }
@@ -79,12 +83,15 @@ header {
       color: white;
     }
   }
-  h2 {
-    margin-top: 1.5rem;
-  }
 
-  .social_links {
-    margin-top: 0.5rem;
+  .info {
+    h2 {
+      margin-top: 1.5rem;
+    }
+
+    .social_links {
+      margin-top: 0.5rem;
+    }
   }
 }
 
@@ -195,21 +202,12 @@ footer {
   }
 }
 
-@media screen and (width >= 580px) {
+@media screen and (580px <= width) {
   header {
     .header-wrapper {
-      display: flow-root;
-
       .hero {
         img {
           max-width: 300px;
-          padding: 0 1rem 0 0;
-          float: left;
-        }
-        h1 {
-          font-size: 2.5rem;
-          position: relative;
-          left: -2.5rem;
         }
       }
 
@@ -227,6 +225,46 @@ footer {
         .social_links {
           justify-content: right;
           padding-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (580px <= width <= 925px) {
+  header {
+    .hero {
+      img {
+        max-width: 300px;
+        padding: 0 1rem 0 0;
+        float: left;
+      }
+      h1 {
+        position: relative;
+        left: -2.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (width >= 925px) {
+  header {
+    .header-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0;
+
+      .hero {
+        img {
+          min-width: 300px;
+        }
+      }
+      .info {
+        max-height: fit-content;
+        margin: 0;
+
+        h2 {
+          text-align: left;
         }
       }
     }
